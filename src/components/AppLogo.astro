@@ -1,0 +1,56 @@
+---
+interface Props {
+  class?: string;
+  isDark?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { class: className = '', isDark = false, size = 'md' } = Astro.props;
+
+const iconSizes = {
+  sm: 'size-7',
+  md: 'size-9',
+  lg: 'size-11',
+};
+
+const textSizes = {
+  sm: 'text-xl',
+  md: 'text-2xl',
+  lg: 'text-3xl',
+};
+---
+
+<div class={`inline-flex items-center gap-2.5 ${className}`}>
+  <!--
+    Ícone oficial do SuiteOps: quatro peças de uma grade 2×2 — três quadros e o
+    selo de concluído no lugar do quarto. O mesmo desenho está em
+    `public/favicon.svg` e no app (`AppLogoIcon.vue`); mudou a marca, muda nos
+    três, e em lugar nenhum mais.
+  -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 86 86"
+    fill="none"
+    class={`${iconSizes[size]} shrink-0 transition-transform duration-200 group-hover:scale-105`}
+    aria-hidden="true"
+  >
+    <rect x="7" y="7" width="33" height="33" rx="8" fill="#284572" />
+    <rect x="46" y="7" width="33" height="33" rx="8" fill="#307AEF" />
+    <rect x="7" y="46" width="33" height="33" rx="8" fill="#00A3FF" />
+    <path
+      d="M62.5 46C71.0604 46 78 52.9396 78 61.5C78 70.0604 71.0604 77 62.5 77C53.9396 77 47 70.0604 47 61.5C47 52.9396 53.9396 46 62.5 46Z"
+      fill="#FF9B00"
+    />
+    <path
+      d="M56 61.8L60.6 66.4L69.4 57.6"
+      stroke="#333333"
+      stroke-width="4.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+
+  <span class={`font-display font-black tracking-tight ${textSizes[size]} ${isDark ? 'text-white' : 'text-cinza-max'}`}>
+    Suite<span class="text-laranja">Ops</span>
+  </span>
+</div>

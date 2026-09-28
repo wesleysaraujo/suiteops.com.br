@@ -1,0 +1,151 @@
+---
+import AppLogo from './AppLogo.astro';
+import { NAV_LINKS, SITE } from '../lib/site';
+---
+
+<!-- Topbar de anúncio / destaque de produto -->
+<aside class="relative z-50 bg-marinho-superficie border-b border-marinho-borda px-4 py-2 text-center text-xs font-medium text-slate-300">
+  <div class="container-so flex items-center justify-center gap-2">
+    <span class="inline-flex items-center rounded-full bg-laranja/15 px-2 py-0.5 text-[10px] font-bold text-laranja uppercase tracking-wider">
+      Nativo MCP
+    </span>
+    <span>
+      Opere toda a sua operação pela tela ou via agentes de IA (Claude, Cursor, Copilot).
+    </span>
+    <a href="#mcp" class="ml-1 font-semibold text-azul-claro underline hover:text-white transition-colors">
+      Ver como funciona &rarr;
+    </a>
+  </div>
+</aside>
+
+<!-- Header Principal Sticky com Glassmorphism -->
+<header class="sticky top-0 z-40 w-full border-b border-fio/80 bg-white/95 backdrop-blur-md transition-all">
+  <div class="container-so flex h-20 items-center justify-between gap-4">
+    <!-- Grupo Esquerdo: Logo + Navegação Desktop -->
+    <div class="flex items-center gap-6 xl:gap-8 min-w-0">
+      <a href="/" class="group flex items-center shrink-0" aria-label="Ir para a página inicial do SuiteOps">
+        <AppLogo size="md" />
+      </a>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5" aria-label="Navegação Principal">
+        {NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class="whitespace-nowrap inline-flex items-center gap-1.5 rounded-lg px-2.5 xl:px-3 py-1.5 text-[13px] xl:text-[13.5px] font-semibold text-cinza-escuro hover:text-azul hover:bg-azul/5 transition-all"
+          >
+            <span>{link.label}</span>
+            {link.badge && (
+              <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-1.5 py-0.2 text-[9px] font-black text-emerald-600 border border-emerald-500/25">
+                {link.badge}
+              </span>
+            )}
+          </a>
+        ))}
+      </nav>
+    </div>
+
+    <!-- Ações Desktop Direita -->
+    <div class="hidden sm:flex items-center gap-2.5 shrink-0">
+      <a
+        href={SITE.loginUrl}
+        class="inline-flex items-center justify-center rounded-lg px-3 py-2 text-[13px] font-bold text-cinza-escuro hover:text-azul hover:bg-cinza-claro transition-colors"
+      >
+        Entrar no App
+      </a>
+      <a
+        href="#demonstracao"
+        class="inline-flex items-center justify-center gap-1.5 rounded-lg bg-laranja px-4.5 py-2 text-[13px] font-extrabold text-cinza-max shadow-sm shadow-laranja/25 hover:bg-amarelo hover:shadow-md transition-all active:scale-[0.98]"
+      >
+        <span>Solicitar Acesso</span>
+        <span class="text-sm font-bold leading-none" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+
+    <!-- Botão Menu Mobile -->
+    <button
+      id="mobile-menu-btn"
+      type="button"
+      class="lg:hidden inline-flex items-center justify-center p-2.5 rounded-md text-cinza-max hover:bg-cinza-claro hover:text-azul transition-colors"
+      aria-label="Abrir menu de navegação"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg class="size-6 menu-open-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg class="size-6 menu-close-icon hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Painel Mobile -->
+  <div id="mobile-menu" class="hidden lg:hidden border-b border-fio bg-white px-4 pt-3 pb-6 shadow-xl">
+    <nav class="flex flex-col space-y-3" aria-label="Navegação Mobile">
+      {NAV_LINKS.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-nav-link flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-semibold text-cinza-max hover:bg-cinza-claro hover:text-azul transition-colors"
+        >
+          <span>{link.label}</span>
+          {link.badge && (
+            <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-black text-emerald-600 border border-emerald-500/25">
+              {link.badge}
+            </span>
+          )}
+        </a>
+      ))}
+      <hr class="border-fio my-2" />
+      <div class="flex flex-col gap-2.5 pt-2">
+        <a
+          href={SITE.loginUrl}
+          class="w-full text-center rounded-lg border border-fio py-2.5 text-sm font-bold text-cinza-max hover:bg-cinza-claro transition-colors"
+        >
+          Entrar no App
+        </a>
+        <a
+          href="#demonstracao"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-laranja py-3 text-sm font-extrabold text-cinza-max shadow-sm hover:bg-amarelo transition-colors"
+        >
+          <span>Solicitar Acesso</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const openIcon = btn?.querySelector('.menu-open-icon');
+  const closeIcon = btn?.querySelector('.menu-close-icon');
+  const links = document.querySelectorAll('.mobile-nav-link');
+
+  function toggleMenu() {
+    const isHidden = menu?.classList.contains('hidden');
+    if (isHidden) {
+      menu?.classList.remove('hidden');
+      openIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+      btn?.setAttribute('aria-expanded', 'true');
+    } else {
+      menu?.classList.add('hidden');
+      openIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  btn?.addEventListener('click', toggleMenu);
+
+  links.forEach((link) => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      openIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

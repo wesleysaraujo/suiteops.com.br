@@ -1,0 +1,218 @@
+---
+import { SITE } from '../lib/site';
+---
+
+<section class="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-fio/60">
+  <!-- Efeito de fundo decorativo com gradiente sutil -->
+  <div class="pointer-events-none absolute -top-40 left-1/2 -z-10 -translate-x-1/2 size-[800px] rounded-full bg-gradient-to-tr from-azul/10 via-laranja/10 to-transparent blur-3xl opacity-70"></div>
+
+  <div class="container-so">
+    <div class="mx-auto max-w-4xl text-center">
+      <!-- Eyebrow Tag -->
+      <div class="mb-6 inline-flex flex-wrap items-center justify-center gap-2">
+        <span class="eyebrow">
+          <span class="size-2 rounded-full bg-azul animate-pulse"></span>
+          Gestão Operacional para Serviços, Locação & Projetos
+        </span>
+        <span class="eyebrow-laranja">
+          ★ Nativo para Agentes de IA via MCP
+        </span>
+      </div>
+
+      <!-- Título Principal Impactante -->
+      <h1 class="h1-hero text-cinza-max">
+        Onde empresas de serviços, locação e projetos vendem, entregam e cobram sabendo <span class="bg-gradient-to-r from-azul via-azul-profundo to-azul bg-clip-text text-transparent">de onde veio cada número.</span>
+      </h1>
+
+      <!-- Subtítulo / Proposta de Valor -->
+      <p class="mt-6 text-lg sm:text-xl text-cinza-escuro max-w-3xl mx-auto leading-relaxed font-normal">
+        A operação de <strong>empresas de serviços</strong>, <strong>locação de ativos</strong>, <strong>consultorias</strong> e <strong>software houses</strong> em um sistema só: do primeiro toque no funil à margem líquida por entrega e gestão de contratos recorrentes.
+      </p>
+
+      <!-- CTAs de Alta Conversão -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#demonstracao" class="btn-laranja w-full sm:w-auto text-[14px] px-8 py-4 text-center">
+          Solicitar Demonstração Gratuita
+          <svg class="size-4 ml-1 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+
+        <a href={SITE.loginUrl} class="btn-outline w-full sm:w-auto text-[14px] px-7 py-4 text-center">
+          Acessar o Sistema
+        </a>
+      </div>
+
+      <!-- Prova e diferenciais rápidos -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs sm:text-sm text-cinza-escuro font-semibold">
+        <span class="inline-flex items-center gap-1.5">
+          <svg class="size-4 text-emerald-600" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          Margem calculada em centavos e minutos
+        </span>
+        <span class="inline-flex items-center gap-1.5">
+          <svg class="size-4 text-emerald-600" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          Relógio de prazos e reajustes automáticos
+        </span>
+        <span class="inline-flex items-center gap-1.5">
+          <svg class="size-4 text-emerald-600" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          4 Servidores MCP e 29 Ferramentas
+        </span>
+      </div>
+    </div>
+
+    <!-- Showcase / Mockup Visual Rico do SuiteOps -->
+    <div class="mt-14 sm:mt-16 mx-auto max-w-5xl">
+      <div class="rounded-xl border border-slate-200 bg-white shadow-2xl overflow-hidden ring-1 ring-black/5">
+        <!-- Topo da Janela do App -->
+        <div class="flex items-center justify-between border-b border-slate-200 bg-slate-900 px-4 py-3 text-white">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-1.5">
+              <span class="size-3 rounded-full bg-rose-500/80"></span>
+              <span class="size-3 rounded-full bg-amber-500/80"></span>
+              <span class="size-3 rounded-full bg-emerald-500/80"></span>
+            </div>
+            <span class="text-xs font-mono text-slate-400">app.suiteops.com.br</span>
+          </div>
+
+          <!-- Seletor de Unidades de Negócio em Destaque -->
+          <div class="hidden sm:flex items-center gap-2 rounded-md bg-slate-800 px-3 py-1 text-xs text-slate-200 border border-slate-700">
+            <span class="text-slate-400">Unidade:</span>
+            <span class="font-bold text-azul-claro">TechBlues Automações</span>
+            <span class="text-slate-500">▾</span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-[11px] font-bold text-emerald-400">
+              <span class="size-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+              MCP Ativo
+            </span>
+          </div>
+        </div>
+
+        <!-- Conteúdo Interno da Interface Demonstrativa -->
+        <div class="bg-slate-50/70 p-4 sm:p-6 lg:p-8">
+          <div class="grid gap-6 lg:grid-cols-12">
+            <!-- Coluna 1: Funil Kanban Resumido (7 colunas no grid) -->
+            <div class="lg:col-span-7 flex flex-col gap-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="text-sm font-black text-cinza-max uppercase tracking-wider">
+                    Funil Comercial · Pré-venda
+                  </h3>
+                  <p class="text-xs text-cinza-escuro">
+                    Dedupe automático por telefone/e-mail e atribuição de origem
+                  </p>
+                </div>
+                <span class="tag-so bg-azul/10 text-azul font-bold">3 Negócios em Aberto</span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <!-- Card 1 Kanban -->
+                <div class="rounded-lg border border-slate-200 bg-white p-3.5 shadow-sm hover:border-azul/40 transition-all">
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="tag-so bg-amber-50 text-amber-700 border border-amber-200 font-semibold">Proposta em Análise</span>
+                    <span class="text-xs font-bold text-slate-700">R$ 18.500</span>
+                  </div>
+                  <h4 class="mt-2 text-xs font-bold text-cinza-max">Automação de Faturamento e Cobrança</h4>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Empresa: Hospital Santa Luzia</p>
+                  <div class="mt-3 flex items-center justify-between border-t border-slate-100 pt-2 text-[10px] text-slate-400 font-mono">
+                    <span>UTM: feira-sindicos</span>
+                    <span class="text-emerald-600 font-semibold">Follow-up D+2</span>
+                  </div>
+                </div>
+
+                <!-- Card 2 Kanban -->
+                <div class="rounded-lg border border-slate-200 bg-white p-3.5 shadow-sm hover:border-azul/40 transition-all">
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="tag-so bg-blue-50 text-blue-700 border border-blue-200 font-semibold">Qualificação</span>
+                    <span class="text-xs font-bold text-slate-700">R$ 32.000</span>
+                  </div>
+                  <h4 class="mt-2 text-xs font-bold text-cinza-max">Agente IA de Triagem com RAG</h4>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Lead: Dr. Roberto Guimarães</p>
+                  <div class="mt-3 flex items-center justify-between border-t border-slate-100 pt-2 text-[10px] text-slate-400 font-mono">
+                    <span>Origem: Formulário Site</span>
+                    <span class="text-azul font-semibold">Playbook v2</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Terminal do Agente MCP em tempo real -->
+              <div class="rounded-lg border border-slate-800 bg-slate-900 p-3.5 text-xs text-slate-300 font-mono">
+                <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-[11px]">
+                  <span class="text-slate-400 flex items-center gap-1.5">
+                    <span class="size-2 rounded-full bg-emerald-400"></span>
+                    Terminal MCP · Agente Claude Code conectado
+                  </span>
+                  <span class="text-slate-500">29 ferramentas disponíveis</span>
+                </div>
+                <p class="text-emerald-400">
+                  &gt; mcp.funil.move_lead(lead_id="94", etapa="proposta_aceita")
+                </p>
+                <p class="text-slate-400 mt-1">
+                  ✓ Transição validada. Proposta congelada no contrato #2026-08 e gerado projeto com 4 entregas.
+                </p>
+              </div>
+            </div>
+
+            <!-- Coluna 2: Métricas de Margem & Horas Determinísticas (5 colunas no grid) -->
+            <div class="lg:col-span-5 flex flex-col justify-between rounded-lg border border-azul/20 bg-white p-5 shadow-sm">
+              <div>
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                  <div>
+                    <span class="text-[11px] font-bold text-azul uppercase tracking-wider">Margem de Projeto</span>
+                    <h3 class="text-base font-extrabold text-cinza-max">Plataforma SaaS Imobiliária</h3>
+                  </div>
+                  <span class="rounded-md bg-emerald-50 px-2.5 py-1 text-xs font-black text-emerald-700 border border-emerald-200">
+                    +48,4% Margem
+                  </span>
+                </div>
+
+                <div class="mt-4 space-y-3">
+                  <div>
+                    <div class="flex justify-between text-xs font-semibold text-slate-700 mb-1">
+                      <span>Horas Apontadas</span>
+                      <span class="font-mono">72h 30m / 120h (60%)</span>
+                    </div>
+                    <div class="h-2 w-full rounded-full bg-slate-100 overflow-hidden">
+                      <div class="h-full rounded-full bg-azul" style="width: 60%"></div>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-2 pt-2">
+                    <div class="rounded-md bg-slate-50 p-2.5">
+                      <span class="text-[10px] text-slate-500 font-medium block">Valor do Escopo</span>
+                      <span class="text-xs font-bold text-cinza-max">R$ 38.000,00</span>
+                    </div>
+                    <div class="rounded-md bg-slate-50 p-2.5">
+                      <span class="text-[10px] text-slate-500 font-medium block">Custo Apontado</span>
+                      <span class="text-xs font-bold text-rose-600">R$ 19.610,00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Alerta de Prazos e Não Renovação -->
+              <div class="mt-4 rounded-md border border-amber-200 bg-amber-50/70 p-3 text-xs text-amber-900">
+                <div class="flex items-start gap-2">
+                  <span class="text-amber-600 font-bold">⚠</span>
+                  <div>
+                    <p class="font-bold">Aviso de Prazo (Contrato #104)</p>
+                    <p class="text-[11px] text-amber-800 mt-0.5">
+                      Janela de não renovação encerra em 18 dias. Notificação pronta para emissão.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

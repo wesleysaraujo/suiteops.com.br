@@ -1,0 +1,16 @@
+# Build & runtime
+node_modules/
+dist/
+.astro/
+.vercel/
+.env
+.env.production
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Formulários e dados locais
+data/

@@ -1,0 +1,185 @@
+---
+import { SITE } from '../lib/site';
+---
+
+<section id="demonstracao" class="py-20 lg:py-28 bg-gradient-to-b from-slate-50 to-slate-100/80 border-b border-fio">
+  <div class="container-narrow">
+    <div class="mx-auto max-w-2xl text-center">
+      <span class="eyebrow-laranja">Acesso & Demonstração</span>
+      <h2 class="h2-section mt-4 text-cinza-max">
+        Veja o SuiteOps rodando na prática com os dados da sua operação.
+      </h2>
+      <p class="mt-4 text-base text-cinza-escuro">
+        Preencha o formulário abaixo. Nosso time entrará em contato para agendar uma demonstração guiada de 20 minutos focada na realidade da sua equipe.
+      </p>
+    </div>
+
+    <div class="mt-12 rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-xl">
+      <form id="suiteops-lead-form" class="space-y-5">
+        <!-- Campos ocultos de UTM -->
+        <input type="hidden" name="utm_source" id="utm_source" value="" />
+        <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+        <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+        <input type="hidden" name="utm_term" id="utm_term" value="" />
+        <input type="hidden" name="utm_content" id="utm_content" value="" />
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="nome" class="block text-xs font-bold uppercase tracking-wider text-cinza-max mb-1.5">
+              Seu Nome Completo *
+            </label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              required
+              placeholder="Ex: Wesley Serafim"
+              class="input-so"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-xs font-bold uppercase tracking-wider text-cinza-max mb-1.5">
+              E-mail Corporativo *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="Ex: wesley@techblues.com.br"
+              class="input-so"
+            />
+          </div>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="telefone" class="block text-xs font-bold uppercase tracking-wider text-cinza-max mb-1.5">
+              WhatsApp com DDD *
+            </label>
+            <input
+              type="tel"
+              id="telefone"
+              name="telefone"
+              required
+              placeholder="(11) 98765-4321"
+              class="input-so"
+            />
+          </div>
+
+          <div>
+            <label for="empresa" class="block text-xs font-bold uppercase tracking-wider text-cinza-max mb-1.5">
+              Nome da Empresa / Operação *
+            </label>
+            <input
+              type="text"
+              id="empresa"
+              name="empresa"
+              required
+              placeholder="Ex: TechBlues Tecnologia"
+              class="input-so"
+            />
+          </div>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="tipo_operacao" class="block text-xs font-bold uppercase tracking-wider text-cinza-max mb-1.5">
+              Tipo de Operação *
+            </label>
+            <select id="tipo_operacao" name="tipo_operacao" required class="input-so">
+              <option value="" disabled selected>Selecione seu modelo</option>
+              <option value="locacao">Empresa de Locação (Equipamentos, Máquinas, Ativos)</option>
+              <option value="servicos">Prestação de Serviços Técnicos / Engenharia</option>
+              <option value="consultoria">Consultoria, Assessoria ou BPO</option>
+              <option value="automacao">Agência de Automação / Marketing</option>
+              <option value="software_house">Software House / Dev Shop</option>
+              <option value="outra">Outro modelo de serviços e contratos</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="tamanho_equipe" class="block text-xs font-bold uppercase tracking-wider text-cinza-max mb-1.5">
+              Tamanho da Equipe *
+            </label>
+            <select id="tamanho_equipe" name="tamanho_equipe" required class="input-so">
+              <option value="" disabled selected>Quantas pessoas na operação?</option>
+              <option value="1-3">1 a 3 pessoas</option>
+              <option value="4-10">4 a 10 pessoas</option>
+              <option value="11-25">11 a 25 pessoas</option>
+              <option value="26+">Mais de 25 pessoas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button
+            type="submit"
+            id="submit-btn"
+            class="btn-laranja w-full py-4 text-sm font-extrabold shadow-md"
+          >
+            Quero Conhecer o SuiteOps
+          </button>
+        </div>
+
+        <p class="text-center text-xs text-slate-400">
+          Seus dados são protegidos conforme a LGPD e usados unicamente para contato sobre o SuiteOps.
+        </p>
+
+        <!-- Mensagem de Sucesso -->
+        <div id="form-success" class="hidden rounded-lg bg-emerald-50 border border-emerald-200 p-4 text-emerald-800 text-sm text-center">
+          <p class="font-bold">✓ Solicitação enviada com sucesso!</p>
+          <p class="text-xs mt-1 text-emerald-700">Entraremos em contato via WhatsApp e e-mail nas próximas horas.</p>
+        </div>
+      </form>
+
+      <!-- Divisor WhatsApp direto -->
+      <div class="mt-8 border-t border-slate-100 pt-6 text-center">
+        <p class="text-xs text-slate-500">
+          Prefere conversar agora?
+          <a
+            href={SITE.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-bold text-azul underline hover:text-azul-profundo ml-1"
+          >
+            Chame no WhatsApp da TechBlues &rarr;
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Captura automática de UTMs da URL
+  const params = new URLSearchParams(window.location.search);
+  const utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+  utmFields.forEach((field) => {
+    const el = document.getElementById(field) as HTMLInputElement | null;
+    if (el && params.has(field)) {
+      el.value = params.get(field) || '';
+    }
+  });
+
+  const form = document.getElementById('suiteops-lead-form') as HTMLFormElement | null;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const successBox = document.getElementById('form-success');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!submitBtn) return;
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Processando...';
+
+    // Simulação de envio com fallback
+    setTimeout(() => {
+      submitBtn.classList.add('hidden');
+      successBox?.classList.remove('hidden');
+      form.reset();
+    }, 800);
+  });
+</script>

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../lib/site';
+
+const VIGENCIA = '25 de setembro de 2026';
+---
+
+<BaseLayout
+  title={`Política de Privacidade (LGPD) · ${SITE.name}`}
+  description="Como o SuiteOps protege seus dados pessoais e empresariais em conformidade com a LGPD."
+>
+  <Header />
+  <main class="py-16 sm:py-20 bg-slate-50/60">
+    <div class="container-narrow">
+      <div class="rounded-2xl border border-slate-200 bg-white p-8 sm:p-12 shadow-sm">
+        <span class="eyebrow">Privacidade & LGPD</span>
+        <h1 class="h2-section mt-3 text-cinza-max">Política de Privacidade</h1>
+        <p class="text-xs text-slate-500 mt-2 font-mono">
+          Vigência a partir de {VIGENCIA} · Versão 1.0
+        </p>
+
+        <div class="mt-8 space-y-6 text-sm text-cinza-escuro leading-relaxed border-t border-slate-200 pt-6">
+          <section class="space-y-2">
+            <h2 class="text-base font-bold text-cinza-max">1. Nosso Compromisso com a Privacidade</h2>
+            <p>
+              A privacidade e a segurança dos dados da sua agência e dos seus clientes são pilares fundacionais do SuiteOps. Esta política descreve como tratamos dados pessoais em total conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 - LGPD).
+            </p>
+          </section>
+
+          <section class="space-y-2">
+            <h2 class="text-base font-bold text-cinza-max">2. Dados Coletados e Finalidade</h2>
+            <p>
+              Coletamos dados fornecidos diretamente por você no cadastro (nome, e-mail corporativo, WhatsApp e empresa) para autenticação, suporte e comunicações operacionais. Dados inseridos por você na gestão de leads, contatos e projetos são processados unicamente para a prestação dos serviços contratados.
+            </p>
+          </section>
+
+          <section class="space-y-2">
+            <h2 class="text-base font-bold text-cinza-max">3. Não Compartilhamento e Treinamento de Modelos</h2>
+            <p>
+              O SuiteOps <strong>nunca</strong> comercializa dados de clientes nem utiliza seus dados ou os de seus projetos para treinar modelos de inteligência artificial de uso público ou genérico. Seus dados são de sua propriedade exclusiva.
+            </p>
+          </section>
+
+          <section class="space-y-2">
+            <h2 class="text-base font-bold text-cinza-max">4. Direitos do Titular (LGPD)</h2>
+            <p>
+              Você pode, a qualquer momento, solicitar a confirmação da existência de tratamento, o acesso aos seus dados, a correção de dados incompletos ou a exclusão definitiva, conforme previsto na LGPD.
+            </p>
+          </section>
+
+          <section class="space-y-2">
+            <h2 class="text-base font-bold text-cinza-max">5. Encarregado de Proteção de Dados (DPO)</h2>
+            <p>
+              Para exercer qualquer direito ou esclarecer dúvidas sobre o tratamento de dados pessoais, entre em contato através de <a href={`mailto:${SITE.email}`} class="text-azul font-semibold underline">{SITE.email}</a>.
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

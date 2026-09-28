@@ -1,0 +1,96 @@
+---
+import AppLogo from './AppLogo.astro';
+import { SITE, NAV_LINKS } from '../lib/site';
+---
+
+<footer class="bg-slate-950 text-slate-400 border-t border-slate-900 py-16 lg:py-20 text-sm">
+  <div class="container-so">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 pb-12 border-b border-slate-800/80">
+      <!-- Coluna Marca e Resumo (5 colunas) -->
+      <div class="lg:col-span-5 space-y-4">
+        <a href="/" class="inline-block" aria-label="SuiteOps Início">
+          <AppLogo isDark={true} size="md" />
+        </a>
+        <p class="text-xs sm:text-sm text-slate-400 max-w-sm leading-relaxed">
+          O sistema operacional onde empresas de serviços, locação e projetos vendem, entregam e cobram sabendo de onde veio cada número.
+        </p>
+        <div class="pt-2 flex items-center gap-3 text-xs">
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-1 text-emerald-400 font-mono text-[11px] border border-emerald-500/20">
+            <span class="size-1.5 rounded-full bg-emerald-400"></span>
+            Plataforma Operacional
+          </span>
+          <span class="text-slate-500">·</span>
+          <span class="text-slate-400 font-mono text-[11px]">4 MCP Servers Ativos</span>
+        </div>
+      </div>
+
+      <!-- Links de Navegação (3 colunas) -->
+      <div class="lg:col-span-3 space-y-3">
+        <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-200">
+          Navegação
+        </h4>
+        <ul class="space-y-2 text-xs">
+          {NAV_LINKS.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-azul-claro transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Links de Acesso e Contato (4 colunas) -->
+      <div class="lg:col-span-4 space-y-3">
+        <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-200">
+          Acesso & Contato
+        </h4>
+        <ul class="space-y-2 text-xs">
+          <li>
+            <a href={SITE.loginUrl} class="hover:text-azul-claro transition-colors font-semibold text-slate-300">
+              Acessar Painel (app.suiteops.com.br) &rarr;
+            </a>
+          </li>
+          <li>
+            <a href="#demonstracao" class="hover:text-azul-claro transition-colors">
+              Agendar Demonstração Guiada
+            </a>
+          </li>
+          <li>
+            <a href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer" class="hover:text-azul-claro transition-colors">
+              Falar no WhatsApp
+            </a>
+          </li>
+          <li>
+            <a href="/termos" class="hover:text-azul-claro transition-colors">
+              Termos de Uso
+            </a>
+          </li>
+          <li>
+            <a href="/privacidade" class="hover:text-azul-claro transition-colors">
+              Política de Privacidade (LGPD)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Linha de Créditos e TechBlues -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <p>
+        © {new Date().getFullYear()} SuiteOps. Todos os direitos reservados.
+      </p>
+      <p class="flex items-center gap-1.5">
+        Um produto desenvolvido com excelência por
+        <a
+          href={SITE.companyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-bold text-azul-claro hover:underline"
+        >
+          TechBlues
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>

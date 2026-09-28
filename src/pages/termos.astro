@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../lib/site';
+
+const VIGENCIA = '25 de setembro de 2026';
+---
+
+<BaseLayout
+  title={`Termos de Uso · ${SITE.name}`}
+  description="Termos de uso e condições gerais da plataforma SuiteOps."
+>
+  <Header />
+  <main class="py-16 sm:py-20 bg-slate-50/60">
+    <div class="container-narrow">
+      <div class="rounded-2xl border border-slate-200 bg-white p-8 sm:p-12 shadow-sm">
+        <span class="eyebrow">Documento Legal</span>
+        <h1 class="h2-section mt-3 text-cinza-max">Termos de Uso</h1>
+        <p class="text-xs text-slate-500 mt-2 font-mono">
+          Vigência a partir de {VIGENCIA} · Versão 1.0
+        </p>
+
+        <div class="mt-8 space-y-6 text-sm text-cinza-escuro leading-relaxed border-t border-slate-200 pt-6">
+          <section class="space-y-2">
+            <h2 class="text-base font-bold text-cinza-max">1. O que é o SuiteOps</h2>
+            <p>
+              O SuiteOps é uma plataforma de software como serviço (SaaS) desenvolvida pela TechBlues, destinada à gestão operacional, comercial, acompanhamento de projetos e cálculo de rentabilidade para agências de serviços técnicos, consultorias e empresas de desenvolvimento.
+            </p>
+          </section>
+
+          <section class="space-y-2">
+            <h2 class="text-base font-bold text-cinza-max">2. Acesso e Contas</h2>
+            <p>
+              O acesso à plataforma é concedido mediante criação de conta corporativa (tenant) e convite de usuários. O contratante é responsável pela veracidade dos dados cadastrados e pela confidencialidade das credenciais de acesso de sua equipe.
+            </p>
+          </section>
+
+          <section class="space-y-2">
+            <h2 class="text-base font-bold text-cinza-max">3. Uso de Agentes e Protocolo MCP</h2>
+            <p>
+              O SuiteOps disponibiliza integração via Model Context Protocol (MCP). O usuário é integralmente responsável pelos agentes, prompts e comandos executados através de suas credenciais OAuth ou chaves de API, sujeitando-se às mesmas permissões e regras da interface visual.
+            </p>
+          </section>
+
+          <section class="space-y-2">
+            <h2 class="text-base font-bold text-cinza-max">4. Propriedade dos Dados e Isolamento</h2>
+            <p>
+              Todos os dados de clientes, propostas, contratos e horas apontadas pertencem exclusivamente ao usuário contratante. O SuiteOps implementa isolamento lógico estrito por tenant e unidades de negócio, garantindo que informações nunca sejam compartilhadas com terceiros.
+            </p>
+          </section>
+
+          <section class="space-y-2">
+            <h2 class="text-base font-bold text-cinza-max">5. Contato</h2>
+            <p>
+              Dúvidas a respeito destes termos podem ser encaminhadas para <a href={`mailto:${SITE.email}`} class="text-azul font-semibold underline">{SITE.email}</a>.
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,107 @@
+---
+const perfis = [
+  {
+    tipo: 'Empresas de Locação & Contratos',
+    tech: 'Máquinas · Equipamentos · Frotas · Tecnologia · Facilities',
+    tamanho: 'Operações de 2 a 100+ contratos',
+    dor: 'Controlar dezenas de contratos em planilhas, perder janelas de aviso prévio de rescisão/renovação e esquecer de aplicar o reajuste anual por inflação (IPCA/IGP-M).',
+    beneficio: 'Relógio de prazos automatizado (60, 30 e 7 dias), cálculo oficial de reajuste pelo Banco Central e histórico imutável de peças e aditivos contratuais.',
+    cor: 'border-amber-500/40 hover:border-amber-500',
+    badge: 'Locação & Recorrência',
+    badgeCor: 'bg-amber-50 text-amber-700 border-amber-200',
+  },
+  {
+    tipo: 'Prestadoras de Serviços Técnicos',
+    tech: 'Engenharia · Instalação · Manutenção · Suporte Especializado',
+    tamanho: '2 a 50 pessoas',
+    dor: 'Propostas vendidas por escopo onde o cliente solicita alterações constantes. A equipe consome horas extras e a margem prevista do serviço vira prejuízo.',
+    beneficio: 'Proposta aceita congelada no contrato, apontamento de horas em minutos e cálculo determinístico de margem real por entrega e por cliente.',
+    cor: 'border-azul/40 hover:border-azul',
+    badge: 'Serviços & Entregas',
+    badgeCor: 'bg-blue-50 text-blue-700 border-blue-200',
+  },
+  {
+    tipo: 'Consultorias & BPO Especializado',
+    tech: 'Processos · Gestão · Jurídico · Dados · Finanças',
+    tamanho: '2 a 30 pessoas',
+    dor: 'Ciclo de vendas consultivo longo, múltiplos contatos com o mesmo cliente por canais dispersos e dificuldade de comprovar o tempo dedicado ao projeto.',
+    beneficio: 'Dedupe nativo de contatos, cadências automáticas de follow-up, playbooks comerciais e rastreabilidade total de cada entrega.',
+    cor: 'border-emerald-500/40 hover:border-emerald-500',
+    badge: 'Consultoria & Projetos',
+    badgeCor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  },
+  {
+    tipo: 'Agências & Software Houses',
+    tech: 'Automação (n8n/Make) · Desenvolvimento · IA · Cloud',
+    tamanho: '2 a 40 pessoas',
+    dor: 'Equipes técnicas pulando entre CRM, Trello, Git e planilhas, sem saber se os projetos entregues no mês deram lucro ou prejuízo.',
+    beneficio: 'Quadro kanban com limite de WIP, consumo de escopo em tempo real e 4 servidores MCP para operar o sistema via agentes no terminal.',
+    cor: 'border-purple-500/40 hover:border-purple-500',
+    badge: 'Tecnologia & Dev',
+    badgeCor: 'bg-purple-50 text-purple-700 border-purple-200',
+  },
+];
+---
+
+<section id="para-quem" class="py-20 lg:py-28 bg-white border-b border-fio">
+  <div class="container-so">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="eyebrow">Público-Alvo</span>
+      <h2 class="h2-section mt-4 text-cinza-max">
+        Construído sob medida para quem vende contratos, serviços e projetos.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-cinza-escuro">
+        O SuiteOps foi desenhado para a dinâmica real de empresas que gerenciam contratos recorrentes, entregam escopo com horas medidas e precisam saber a rentabilidade de cada cliente.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2">
+      {perfis.map((item) => (
+        <div class={`rounded-xl border ${item.cor} bg-slate-50/50 p-7 sm:p-8 flex flex-col justify-between hover:bg-white hover:shadow-xl transition-all`}>
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200/80">
+              <span class={`rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider border ${item.badgeCor}`}>
+                {item.badge}
+              </span>
+              <span class="font-mono text-xs font-bold text-slate-500">
+                {item.tamanho}
+              </span>
+            </div>
+
+            <h3 class="mt-4 text-xl font-bold text-cinza-max">
+              {item.tipo}
+            </h3>
+            <span class="text-xs font-mono text-slate-500 block mt-1">
+              {item.tech}
+            </span>
+
+            <div class="mt-5 space-y-3.5">
+              <div class="rounded-lg bg-rose-50/50 p-3 border border-rose-100">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-rose-700 block">Onde dói hoje</span>
+                <p class="text-xs text-slate-700 mt-1 leading-relaxed">{item.dor}</p>
+              </div>
+
+              <div class="rounded-lg bg-emerald-50/50 p-3 border border-emerald-100">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 block">Como o SuiteOps resolve</span>
+                <p class="text-xs text-slate-800 mt-1 leading-relaxed font-medium">{item.beneficio}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Banner honesto: Para quem NÃO é -->
+    <div class="mt-12 rounded-xl border border-amber-200 bg-amber-50/60 p-6 sm:p-8">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block">Transparência Radical</span>
+          <h4 class="text-base font-bold text-amber-950 mt-1">Para quem o SuiteOps NÃO foi feito:</h4>
+          <p class="text-xs sm:text-sm text-amber-900 mt-1 max-w-3xl leading-relaxed">
+            Não somos um CRM para e-commerce, varejo físico ou grandes forças de vendas transacionais de commodities (HubSpot e Salesforce atendem melhor). Nosso foco é conectar a venda à entrega real de serviços, acompanhamento de contratos de locação e à margem líquida da operação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

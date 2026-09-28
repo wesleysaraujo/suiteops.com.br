@@ -1,0 +1,139 @@
+---
+const servidores = [
+  {
+    nome: '/mcp/funil',
+    ferramentas: '8 ferramentas',
+    desc: 'Consulta leads, cadastra toques com UTM, move oportunidades no kanban e registra motivo formal de perda.',
+    exemplo: 'mcp.funil.registrar_lead({ nome, email, telefone, utm_source })',
+  },
+  {
+    nome: '/mcp/comercial',
+    ferramentas: '7 ferramentas',
+    desc: 'Gera rascunho de propostas, consulta status de aceite, verifica relógio de prazos e calcula reajustes oficiais.',
+    exemplo: 'mcp.comercial.consultar_reajuste({ contrato_id: 42, indice: "IPCA" })',
+  },
+  {
+    nome: '/mcp/projetos',
+    ferramentas: '9 ferramentas',
+    desc: 'Lê entregas do escopo vendido, aponta horas em minutos (com validação de data) e calcula a margem líquida do projeto.',
+    exemplo: 'mcp.projetos.apontar_horas({ projeto_id, minutos: 90, entrega_id })',
+  },
+  {
+    nome: '/mcp/automacoes',
+    ferramentas: '5 ferramentas',
+    desc: 'Simula o impacto de gatilhos sobre leads e tarefas antes de ativar, e audita histórico de execuções.',
+    exemplo: 'mcp.automacoes.simular_regra({ regra_id: 12, lead_id: 88 })',
+  },
+];
+---
+
+<section id="mcp" class="relative overflow-hidden bg-slate-950 py-20 lg:py-28 text-white border-b border-slate-850">
+  <!-- Brilhos de fundo tecnológicos -->
+  <div class="pointer-events-none absolute -top-40 right-10 size-[600px] rounded-full bg-azul/15 blur-3xl opacity-50"></div>
+  <div class="pointer-events-none absolute bottom-0 -left-20 size-[500px] rounded-full bg-laranja/10 blur-3xl opacity-40"></div>
+
+  <div class="container-so relative z-10">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest">
+        <span class="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Model Context Protocol (MCP) Nativo
+      </span>
+
+      <h2 class="font-display text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl mt-5 leading-tight">
+        Opere sua operação pela tela do navegador ou pelo seu agente favorito no terminal.
+      </h2>
+
+      <p class="mt-4 text-base sm:text-lg text-slate-300">
+        Tela e agente são caminhos equivalentes no SuiteOps: chamam exatamente os mesmos serviços de domínio e respeitam as mesmas travas de segurança.
+      </p>
+    </div>
+
+    <!-- Comparativo visual tela vs agente -->
+    <div class="mt-14 grid gap-8 lg:grid-cols-12 items-center">
+      <!-- Terminal MCP Interativo / Explicativo (7 colunas) -->
+      <div class="lg:col-span-7 rounded-xl border border-slate-800 bg-slate-900/90 shadow-2xl backdrop-blur-md overflow-hidden">
+        <div class="flex items-center justify-between border-b border-slate-800 bg-slate-950/70 px-4 py-3">
+          <div class="flex items-center gap-2">
+            <span class="size-3 rounded-full bg-rose-500/70"></span>
+            <span class="size-3 rounded-full bg-amber-500/70"></span>
+            <span class="size-3 rounded-full bg-emerald-500/70"></span>
+            <span class="ml-2 font-mono text-xs text-slate-400">claude_code_session ~ suiteops-mcp</span>
+          </div>
+          <span class="rounded bg-slate-800 px-2 py-0.5 font-mono text-[10px] text-emerald-400 border border-slate-700">
+            OAuth 2.0 Ativo
+          </span>
+        </div>
+
+        <div class="p-5 font-mono text-xs leading-relaxed text-slate-300 space-y-4">
+          <div>
+            <p class="text-slate-400">
+              <span class="text-laranja">user@techblues:</span>~$ claude "Atualize o lead do Hospital Santa Luzia para ganho e verifique a margem prevista do projeto criado"
+            </p>
+          </div>
+
+          <div class="rounded-lg bg-slate-950 p-4 border border-slate-800 space-y-2">
+            <p class="text-blue-400">
+              ⚡ [MCP Tool Call] &gt; suiteops.funil.move_lead
+            </p>
+            <p class="text-slate-400 pl-4">
+              arg: &#123; lead_id: 104, stage: "ganho", motivo: "Proposta #89 aprovada pelo conselho" &#125;
+            </p>
+            <p class="text-emerald-400 pl-4">
+              ✔ Resposta: Sucesso. Projeto #48 gerado automaticamente a partir do escopo aceito.
+            </p>
+
+            <p class="text-blue-400 pt-2">
+              ⚡ [MCP Tool Call] &gt; suiteops.projetos.consultar_margem
+            </p>
+            <p class="text-slate-400 pl-4">
+              arg: &#123; projeto_id: 48 &#125;
+            </p>
+            <p class="text-emerald-400 pl-4">
+              ✔ Resposta: Valor do escopo R$ 28.000,00 · Custo previsto R$ 13.440,00 · Margem projetada: 52,0%.
+            </p>
+          </div>
+
+          <p class="text-slate-300 font-sans text-sm">
+            <strong class="text-white">Assistente:</strong> "Pronto! O lead foi marcado como ganho com o motivo registrado, o contrato foi congelado e o projeto já está pronto com margem de 52,0% calculada no código."
+          </p>
+        </div>
+      </div>
+
+      <!-- Detalhes dos Servidores e Segurança (5 colunas) -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="rounded-lg border border-slate-800 bg-slate-900/60 p-5">
+          <div class="flex items-center gap-3">
+            <div class="flex size-10 items-center justify-center rounded-lg bg-azul/20 text-azul-claro">
+              <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-base">As Mesmas Regras da Tela</h4>
+              <p class="text-xs text-slate-400">Zero bypass de permissões</p>
+            </div>
+          </div>
+          <p class="mt-3 text-xs text-slate-300 leading-relaxed">
+            Nenhuma ferramenta MCP inventa atalhos. Se o usuário precisa preencher um motivo para marcar uma perda na tela, o agente também é obrigado a fornecer o motivo via API.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          {servidores.map((srv) => (
+            <div class="rounded-lg border border-slate-800 bg-slate-900/40 p-4">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-bold text-azul-claro">{srv.nome}</span>
+                <span class="rounded bg-slate-800 px-1.5 py-0.5 text-[10px] text-slate-400 font-mono">
+                  {srv.ferramentas}
+                </span>
+              </div>
+              <p class="mt-2 text-[11px] text-slate-400 leading-relaxed">
+                {srv.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

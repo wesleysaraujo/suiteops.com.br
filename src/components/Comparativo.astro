@@ -1,0 +1,80 @@
+---
+const comparativos = [
+  {
+    criterio: 'Múltiplas Marcas / Verticais',
+    zoho: 'Exige planos caros para múltiplos pipelines ou campos customizados frágeis.',
+    suiteops: 'Unidades de negócio nativas. Cada marca tem funis, clientes e projetos próprios.',
+  },
+  {
+    criterio: 'Deduplicação de Contatos',
+    zoho: 'Leads de canais diferentes duplicam contatos e exigem scripts manuais para dedupe.',
+    suiteops: 'Dedupe nativo por e-mail e telefone internacional (55 BR). Histórico unificado.',
+  },
+  {
+    criterio: 'Da Proposta à Entrega',
+    zoho: 'O processo morre no CRM. O escopo precisa ser recriado no Trello ou ClickUp.',
+    suiteops: 'A proposta aceita congela o contrato e gera o projeto com as entregas já amarradas.',
+  },
+  {
+    criterio: 'Cálculo de Margem Líquida',
+    zoho: 'Inexistente. O CRM não enxerga apontamento de horas nem custo horário da equipe.',
+    suiteops: 'Aritmética determinística em centavos e minutos por entrega, projeto e cliente.',
+  },
+  {
+    criterio: 'Controle de Prazos e Reajustes',
+    zoho: 'Depende de alertas manuais configurados individualmente.',
+    suiteops: 'Relógio de prazos automático com cálculo oficial por índices do Banco Central.',
+  },
+  {
+    criterio: 'Operação por Agentes de IA',
+    zoho: 'Assistentes de IA limitados e sem acesso ao fluxo operacional da sua máquina.',
+    suiteops: '4 servidores MCP nativos com 29 ferramentas para operar via Claude, Cursor ou Copilot.',
+  },
+];
+---
+
+<section id="comparativo" class="py-20 lg:py-28 bg-slate-50/50 border-b border-fio">
+  <div class="container-so">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="eyebrow">Comparativo Técnico</span>
+      <h2 class="h2-section mt-4 text-cinza-max">
+        Por que construímos o SuiteOps em vez de empilhar ferramentas?
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-cinza-escuro">
+        Uma lista de atritos reais que enfrentamos na prática operando empresas de serviços, locação e tecnologia.
+      </p>
+    </div>
+
+    <!-- Tabela Comparativa Moderna Responsiva -->
+    <div class="mt-14 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-md">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="border-b border-slate-200 bg-slate-900 text-white font-mono text-xs">
+              <th class="p-4 sm:p-5 font-bold uppercase tracking-wider w-1/3">Critério Operacional</th>
+              <th class="p-4 sm:p-5 font-bold uppercase tracking-wider text-rose-300 w-1/3">CRMs Genéricos + Planilhas</th>
+              <th class="p-4 sm:p-5 font-bold uppercase tracking-wider text-emerald-400 w-1/3 bg-slate-800/80">SuiteOps</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            {comparativos.map((row) => (
+              <tr class="hover:bg-slate-50/80 transition-colors">
+                <td class="p-4 sm:p-5 font-bold text-cinza-max text-xs sm:text-sm">
+                  {row.criterio}
+                </td>
+                <td class="p-4 sm:p-5 text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  <span class="inline-block text-rose-500 mr-1.5 font-bold">✕</span>
+                  {row.zoho}
+                </td>
+                <td class="p-4 sm:p-5 text-xs sm:text-sm text-slate-800 font-medium leading-relaxed bg-blue-50/20">
+                  <span class="inline-block text-emerald-600 mr-1.5 font-bold">✓</span>
+                  {row.suiteops}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

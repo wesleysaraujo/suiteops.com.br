@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import AsTresPerguntas from '../components/AsTresPerguntas.astro';
+import Capacidades from '../components/Capacidades.astro';
+import McpShowcase from '../components/McpShowcase.astro';
+import MultiUnidades from '../components/MultiUnidades.astro';
+import Comparativo from '../components/Comparativo.astro';
+import ParaQuem from '../components/ParaQuem.astro';
+import LeadForm from '../components/LeadForm.astro';
+import Faq from '../components/Faq.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../lib/site';
+---
+
+<BaseLayout
+  title={SITE.title}
+  description={SITE.description}
+>
+  <Header />
+  <main>
+    <Hero />
+    <AsTresPerguntas />
+    <Capacidades />
+    <McpShowcase />
+    <MultiUnidades />
+    <Comparativo />
+    <ParaQuem />
+    <LeadForm />
+    <Faq />
+  </main>
+  <Footer />
+</BaseLayout>

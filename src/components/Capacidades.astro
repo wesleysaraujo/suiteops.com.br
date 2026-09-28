@@ -1,0 +1,129 @@
+---
+const modulos = [
+  {
+    titulo: 'Funil & Captura com Dedupe Nativo',
+    resumo:
+      'Pessoas, empresas e leads unificados. O formulário do site, o Instagram e a feira alimentam a mesma pessoa sem duplicar.',
+    detalhes: [
+      'Dedupe automático por e-mail e telefone internacional (55 BR).',
+      'Linha do tempo contínua de toques (primeira origem, última UTM e campanhas).',
+      'Eventos com QR Code dinâmico e link próprio para feiras e palestras.',
+      'Kanban ágil com arraste, seletor de unidade e motivo obrigatório na perda.',
+    ],
+    tag: 'Comercial & Marketing',
+    cor: 'border-blue-500/30 text-azul',
+  },
+  {
+    titulo: 'Playbooks & Cadências de Contato',
+    resumo:
+      'Padronize a fala comercial de toda a equipe sem depender da memória de ninguém para fazer o follow-up.',
+    detalhes: [
+      'Playbooks versionados por etapa (pitches, objeções e roteiros).',
+      'Cadências diárias automáticas em D0, D+2 e D+7.',
+      'Mensagens prontas para disparo via WhatsApp, e-mail e ligação.',
+      'Avisos de leads estagnados antes de esfriarem no funil.',
+    ],
+    tag: 'Vendas & Pré-venda',
+    cor: 'border-amber-500/30 text-amber-600',
+  },
+  {
+    titulo: 'Propostas & Contratos Congelados',
+    resumo:
+      'Propostas por escopo com aceite seguro. O contrato congela exatamente os termos aprovados, com relógio de prazos para contratos de serviços e locação.',
+    detalhes: [
+      'Versões de propostas com código único de validação do cliente.',
+      'Congelamento de termos: o projeto nasce da proposta aceita e não sofre alterações posteriores.',
+      'Relógio de prazos: alertas de 60, 30 e 7 dias antes do aviso prévio.',
+      'Conferência de reajuste por série oficial do BC (IPCA, IGP-M).',
+    ],
+    tag: 'Contratos & Receita',
+    cor: 'border-emerald-500/30 text-emerald-600',
+  },
+  {
+    titulo: 'Projetos, Entregas & Margem Real',
+    resumo:
+      'Dinheiro em centavos, tempo em minutos. Saiba exatamente quanto sobrou em cada entrega antes da fatura fechar.',
+    detalhes: [
+      'Projetos amarrados ao escopo vendido com lista de entregas contratuais.',
+      'Apontamento de horas em minutos (80 minutos = 1h20, sem arredondamentos falsos).',
+      'Consumo visual do escopo em tempo real com barra de progresso.',
+      'Margem determinística apurada por entrega, projeto e por cliente.',
+    ],
+    tag: 'Operação & Lucro',
+    cor: 'border-purple-500/30 text-purple-600',
+  },
+  {
+    titulo: 'Quadro de Tarefas com Limite de WIP',
+    resumo:
+      'Kanban operacional focado em fluxo contínuo. Colunas configuráveis com limites para não sobrecarregar quem entrega.',
+    detalhes: [
+      'Tarefas nascem diretamente de leads, projetos ou entregas.',
+      'Limite de WIP (Work In Progress) que avisa gargalos antes do atraso.',
+      'Filtros instantâneos por responsável, cliente, entrega e vencimento.',
+      'Subtarefas e checklists de conformidade e deploy.',
+    ],
+    tag: 'Produtividade',
+    cor: 'border-sky-500/30 text-sky-600',
+  },
+  {
+    titulo: 'Automações Seguras com 5 Travas',
+    resumo:
+      'Gatilho → Condições → Ações sem código sobre leads e tarefas. Construído com rigor para nunca gerar incidentes.',
+    detalhes: [
+      '5 travas inegociáveis: nada dispara para o cliente sem confirmação humana.',
+      'Toda execução gera log auditável e rastreável.',
+      'Ações obedecem exatamente às mesmas políticas de segurança da tela.',
+      'Simulador embutido para testar cenários antes de colocar em produção.',
+    ],
+    tag: 'Workflow & Escala',
+    cor: 'border-rose-500/30 text-rose-600',
+  },
+];
+---
+
+<section id="capacidades" class="py-20 lg:py-28 bg-slate-50/60 border-b border-fio">
+  <div class="container-so">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="eyebrow">Arquitetura Completa</span>
+      <h2 class="h2-section mt-4 text-cinza-max">
+        Cada módulo construído a partir das dores reais da operação.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-cinza-escuro">
+        Do primeiro contato até o fechamento financeiro, tudo foi projetado para eliminar ruído, evitar retrabalho e garantir previsibilidade.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {modulos.map((mod) => (
+        <div class="rounded-xl border border-fio bg-white p-7 shadow-sm transition-all hover:border-azul/30 hover:shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <span class={`rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider ${mod.cor} bg-slate-50 border`}>
+                {mod.tag}
+              </span>
+            </div>
+
+            <h3 class="mt-4 text-lg font-bold text-cinza-max leading-tight">
+              {mod.titulo}
+            </h3>
+
+            <p class="mt-2.5 text-sm text-cinza-escuro leading-relaxed">
+              {mod.resumo}
+            </p>
+
+            <ul class="mt-5 space-y-2 text-xs text-slate-600 border-t border-slate-100 pt-4">
+              {mod.detalhes.map((item) => (
+                <li class="flex items-start gap-2">
+                  <svg class="size-4 shrink-0 text-azul mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

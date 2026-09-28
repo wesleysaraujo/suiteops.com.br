@@ -1,0 +1,64 @@
+---
+const faqs = [
+  {
+    pergunta: 'O que diferencia o SuiteOps de um CRM tradicional (HubSpot, Zoho, Pipedrive)?',
+    resposta:
+      'CRMs comuns morrem no momento em que o negócio é marcado como "ganho". Eles não ligam a proposta ao contrato formal, não vigiam prazos de locação ou rescisão, não controlam o consumo de escopo da equipe e não medem a margem real de cada entrega. O SuiteOps conecta a operação inteira: do primeiro toque no funil ao relógio de contratos e cálculo determinístico do lucro.',
+  },
+  {
+    pergunta: 'Como funciona a integração com agentes de IA via protocolo MCP?',
+    resposta:
+      'O SuiteOps oferece 4 servidores MCP com 29 ferramentas oficiais. Você conecta agentes como Claude Code, Cursor ou ChatGPT diretamente à sua conta através de OAuth 2.0. O agente pode consultar leads, criar tarefas, checar margem e apontar horas, obedecendo rigorosamente às mesmas permissões e validações da interface web.',
+  },
+  {
+    pergunta: 'O cálculo de margem de lucro é uma estimativa gerada por IA?',
+    resposta:
+      'Não. A regra do SuiteOps é categórica: a IA lê e redige; quem decide e calcula é o código determinístico. Dinheiro é calculado em centavos e tempo é medido em minutos. O sistema cruza o valor contratado de cada entrega contra as horas apontadas e o custo/hora da equipe. É uma conta matemática auditável que você refaz no papel.',
+  },
+  {
+    pergunta: 'Consigo gerenciar mais de uma marca ou negócio na mesma conta?',
+    resposta:
+      'Sim. O recurso de Unidades de Negócio foi desenhado especificamente para quem opera múltiplas marcas (como a própria TechBlues opera serviços e o produto SindiOps). Cada unidade possui seus próprios funis, leads, propostas e projetos, com permissões de acesso separadas por membro da equipe.',
+  },
+  {
+    pergunta: 'O que são as 5 travas de segurança das automações?',
+    resposta:
+      'Automações no SuiteOps possuem travas rígidas: 1) nenhuma automação fala diretamente com o cliente sem revisão humana; 2) toda execução grava log auditável; 3) regras respeitam as mesmas travas da tela; 4) proteção nativa contra loops infinitos; 5) simulador para testar o impacto nos leads antes de ligar a chave.',
+  },
+  {
+    pergunta: 'O SuiteOps substitui meu sistema financeiro ou emissor de notas fiscais?',
+    resposta:
+      'Não. A exclusão é deliberada: emissão de notas fiscais, boletos e conciliação bancária são do seu ERP ou banco. O SuiteOps cuida de onde o dinheiro é decidido, gerado e consumido: propostas, contratos de locação ou serviços, prazos de renovação, reajustes por índices e margem líquida dos projetos.',
+  },
+];
+---
+
+<section id="faq" class="py-20 lg:py-28 bg-white border-b border-fio">
+  <div class="container-narrow">
+    <div class="mx-auto max-w-2xl text-center">
+      <span class="eyebrow">Dúvidas Frequentes</span>
+      <h2 class="h2-section mt-4 text-cinza-max">
+        Perguntas e respostas diretas sobre o SuiteOps.
+      </h2>
+      <p class="mt-4 text-base text-cinza-escuro">
+        Respostas transparentes sobre o que o produto faz, onde ele atua e como ele protege a sua operação.
+      </p>
+    </div>
+
+    <div class="mt-14 space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="group rounded-xl border border-fio bg-slate-50/50 p-6 transition-all hover:bg-white hover:border-azul/40 [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 font-display text-base sm:text-lg font-bold text-cinza-max select-none">
+            <span>{faq.pergunta}</span>
+            <span class="size-6 shrink-0 rounded-full bg-azul/10 text-azul flex items-center justify-center text-sm font-bold transition-transform duration-200 group-open:rotate-45">
+              +
+            </span>
+          </summary>
+          <div class="mt-4 pt-3 border-t border-slate-200/60 text-sm text-cinza-escuro leading-relaxed">
+            {faq.resposta}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

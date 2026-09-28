@@ -1,0 +1,81 @@
+---
+const perguntas = [
+  {
+    num: '01',
+    pergunta: '“De onde veio esse cliente, e quanto custou trazê-lo?”',
+    problema:
+      'Você roda tráfego pago, vai a feiras com QR Code, recebe indicação no WhatsApp e cadastra no CRM. Quando o contrato fecha, ninguém sabe dizer com precisão qual canal gerou o lucro.',
+    solucao:
+      'Identidade única com dedupe nativo por e-mail, telefone normalizado e CNPJ. O SuiteOps registra a linha do tempo completa de touchpoints — da primeira UTM ao QR Code do evento — até a assinatura do contrato.',
+    badge: 'Atribuição Real',
+    iconColor: 'bg-azul/10 text-azul',
+  },
+  {
+    num: '02',
+    pergunta: '“Esse projeto está dando dinheiro?”',
+    problema:
+      'O escopo foi vendido por R$ 25.000 prevendo 80 horas. O cliente pediu revisões, a equipe gastou 130 horas e a margem virou prejuízo em silêncio porque o CRM não enxerga o tempo gasto.',
+    solucao:
+      'Dinheiro em centavos, tempo em minutos. A proposta aceita congela os termos e gera o projeto com entregas amarradas. Horas apontadas consom o escopo em tempo real com cálculo determinístico de margem por entrega, por projeto e por cliente.',
+    badge: 'Margem em Tempo Real',
+    iconColor: 'bg-emerald-500/10 text-emerald-600',
+  },
+  {
+    num: '03',
+    pergunta: '“O que passou batido esta semana?”',
+    problema:
+      'O lead esfriou sem o follow-up no 2º dia, a proposta ficou esquecida na caixa de entrada, e o contrato anual renovou sozinho sem aplicar o reajuste acumulado do IPCA.',
+    solucao:
+      'Varredura diária no scheduler e conferências automáticas. O sistema alerta sobre cadências paradas, tarefas que estouraram estimativas e contratos que atingiram a janela de rescisão ou aniversário de reajuste oficial.',
+    badge: 'Zero Ponto Cego',
+    iconColor: 'bg-laranja/10 text-laranja',
+  },
+];
+---
+
+<section id="perguntas" class="py-20 lg:py-28 bg-white border-b border-fio">
+  <div class="container-so">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="eyebrow">A Tese do Produto</span>
+      <h2 class="h2-section mt-4 text-cinza-max">
+        Três perguntas que hoje ficam sem resposta porque o dado mora em ferramentas separadas.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-cinza-escuro">
+        Quando o comercial usa um CRM isolado, a operação entrega sem medir horas e os contratos de serviços ou locação ficam em planilhas, a empresa navega por suposições.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-8 md:grid-cols-3">
+      {perguntas.map((item) => (
+        <div class="relative flex flex-col justify-between rounded-xl border border-fio bg-slate-50/50 p-7 sm:p-8 transition-all hover:bg-white hover:border-azul/40 hover:shadow-xl group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-3xl font-black text-slate-300 group-hover:text-azul transition-colors">
+                {item.num}
+              </span>
+              <span class={`rounded-full px-3 py-1 text-xs font-bold ${item.iconColor}`}>
+                {item.badge}
+              </span>
+            </div>
+
+            <h3 class="mt-6 text-lg sm:text-xl font-black text-cinza-max leading-snug">
+              {item.pergunta}
+            </h3>
+
+            <div class="mt-4 space-y-3 text-sm text-cinza-escuro">
+              <div class="rounded-md bg-rose-50/60 p-3.5 border border-rose-100 text-rose-950">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-rose-700 block mb-1">O atrito hoje</span>
+                <p class="text-xs leading-relaxed text-slate-700">{item.problema}</p>
+              </div>
+
+              <div class="rounded-md bg-emerald-50/60 p-3.5 border border-emerald-100 text-emerald-950">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 block mb-1">Como o SuiteOps resolve</span>
+                <p class="text-xs leading-relaxed text-slate-700">{item.solucao}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
