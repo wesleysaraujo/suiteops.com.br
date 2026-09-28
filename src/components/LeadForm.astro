@@ -23,6 +23,13 @@ import { SITE } from '../lib/site';
         <input type="hidden" name="utm_term" id="utm_term" value="" />
         <input type="hidden" name="utm_content" id="utm_content" value="" />
 
+        <!-- Campo-armadilha: invisível na tela e fora da navegação por teclado,
+             então só robô o preenche. Fica com nome plausível de propósito. -->
+        <div class="absolute left-[-9999px]" aria-hidden="true">
+          <label for="website">Não preencha este campo</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
         <div class="grid gap-5 sm:grid-cols-2">
           <div>
             <label for="nome" class="block text-xs font-bold uppercase tracking-wider text-cinza-max mb-1.5">
@@ -127,10 +134,24 @@ import { SITE } from '../lib/site';
           Seus dados são protegidos conforme a LGPD e usados unicamente para contato sobre o SuiteOps.
         </p>
 
-        <!-- Mensagem de Sucesso -->
+        <!-- Mensagem de Sucesso. Só aparece quando o SuiteOps confirmou o
+             registro do lead — antes ela aparecia sempre, e quem preenchia saía
+             certo de que seria contatado enquanto o dado se perdia no navegador. -->
         <div id="form-success" class="hidden rounded-lg bg-emerald-50 border border-emerald-200 p-4 text-emerald-800 text-sm text-center">
           <p class="font-bold">✓ Solicitação enviada com sucesso!</p>
           <p class="text-xs mt-1 text-emerald-700">Entraremos em contato via WhatsApp e e-mail nas próximas horas.</p>
+        </div>
+
+        <!-- Falha: a saída é o WhatsApp, que não depende de nada nosso estar no
+             ar. Some no próximo envio. -->
+        <div id="form-error" class="hidden rounded-lg bg-red-50 border border-red-200 p-4 text-red-800 text-sm text-center">
+          <p class="font-bold" id="form-error-text">Não foi possível enviar agora.</p>
+          <p class="text-xs mt-1 text-red-700">
+            Tente de novo em instantes ou
+            <a href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer" class="font-bold underline">
+              fale com a gente no WhatsApp
+            </a>.
+          </p>
         </div>
       </form>
 
@@ -167,19 +188,54 @@ import { SITE } from '../lib/site';
   const form = document.getElementById('suiteops-lead-form') as HTMLFormElement | null;
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
   const successBox = document.getElementById('form-success');
+  const errorBox = document.getElementById('form-error');
+  const errorText = document.getElementById('form-error-text');
 
-  form?.addEventListener('submit', (e) => {
+  /**
+   * O lead vai para `/api/lead`, que roda no servidor e assina a entrega ao
+   * SuiteOps. O sucesso só aparece quando o registro é confirmado: a versão
+   * anterior mostrava a confirmação depois de um `setTimeout`, sem enviar nada.
+   */
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (!submitBtn) return;
 
+    if (!submitBtn) {
+      return;
+    }
+
+    errorBox?.classList.add('hidden');
     submitBtn.disabled = true;
-    submitBtn.innerText = 'Processando...';
+    submitBtn.innerText = 'Enviando...';
 
-    // Simulação de envio com fallback
-    setTimeout(() => {
+    const dados = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const resposta = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados),
+      });
+
+      if (!resposta.ok) {
+        throw new Error(String(resposta.status));
+      }
+
       submitBtn.classList.add('hidden');
       successBox?.classList.remove('hidden');
       form.reset();
-    }, 800);
+    } catch (erro) {
+      if (errorText) {
+        // 422 é campo faltando, e a pessoa resolve sozinha; o resto é problema
+        // nosso, e mandá-la conferir os campos seria culpá-la por ele.
+        errorText.innerText =
+          erro instanceof Error && erro.message === '422'
+            ? 'Confira o nome e o e-mail ou WhatsApp.'
+            : 'Não foi possível enviar agora.';
+      }
+
+      errorBox?.classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitBtn.innerText = 'Quero Conhecer o SuiteOps';
+    }
   });
 </script>
