@@ -14,8 +14,5 @@
     "@tailwindcss/vite": "^4.0.0",
     "astro": "^5.0.0",
     "tailwindcss": "^4.0.0"
-  },
-  "devDependencies": {
-    "@rolldown/binding-darwin-arm64": "^1.2.11"
   }
 }
