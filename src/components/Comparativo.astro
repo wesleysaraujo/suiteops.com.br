@@ -1,4 +1,6 @@
 ---
+import { MCP } from '../lib/site';
+
 const comparativos = [
   {
     criterio: 'Múltiplas Marcas / Verticais',
@@ -28,7 +30,7 @@ const comparativos = [
   {
     criterio: 'Operação por Agentes de IA',
     zoho: 'Assistentes de IA limitados e sem acesso ao fluxo operacional da sua máquina.',
-    suiteops: '4 servidores MCP nativos com 29 ferramentas para operar via Claude, Cursor ou Copilot.',
+    suiteops: `${MCP.servers} servidores MCP nativos com ${MCP.tools} ferramentas para operar via Claude, Cursor ou Copilot.`,
   },
 ];
 ---

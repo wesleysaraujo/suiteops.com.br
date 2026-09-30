@@ -1,4 +1,6 @@
 ---
+import { MCP } from '../lib/site';
+
 const faqs = [
   {
     pergunta: 'O que diferencia o SuiteOps de um CRM tradicional (HubSpot, Zoho, Pipedrive)?',
@@ -8,7 +10,7 @@ const faqs = [
   {
     pergunta: 'Como funciona a integração com agentes de IA via protocolo MCP?',
     resposta:
-      'O SuiteOps oferece 4 servidores MCP com 29 ferramentas oficiais. Você conecta agentes como Claude Code, Cursor ou ChatGPT diretamente à sua conta através de OAuth 2.0. O agente pode consultar leads, criar tarefas, checar margem e apontar horas, obedecendo rigorosamente às mesmas permissões e validações da interface web.',
+      `O SuiteOps oferece ${MCP.servers} servidores MCP com ${MCP.tools} ferramentas oficiais. Você conecta agentes como Claude Code, Cursor ou ChatGPT diretamente à sua conta através de OAuth 2.0. O agente pode consultar leads, criar tarefas, checar margem e apontar horas, obedecendo rigorosamente às mesmas permissões e validações da interface web.`,
   },
   {
     pergunta: 'O cálculo de margem de lucro é uma estimativa gerada por IA?',

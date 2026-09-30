@@ -1,5 +1,5 @@
 ---
-import { SITE } from '../lib/site';
+import { SITE, MCP } from '../lib/site';
 ---
 
 <section class="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-fio/60">
@@ -61,7 +61,7 @@ import { SITE } from '../lib/site';
           <svg class="size-4 text-emerald-600" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
           </svg>
-          4 Servidores MCP e 29 Ferramentas
+          {MCP.servers} Servidores MCP e {MCP.tools} Ferramentas
         </span>
       </div>
     </div>
@@ -157,7 +157,7 @@ import { SITE } from '../lib/site';
                     <span class="size-2 shrink-0 rounded-full bg-emerald-400 mt-1"></span>
                     Terminal MCP · Agente Claude Code conectado
                   </span>
-                  <span class="text-slate-500">29 ferramentas disponíveis</span>
+                  <span class="text-slate-500">{MCP.tools} ferramentas disponíveis</span>
                 </div>
                 <p class="text-emerald-400">
                   &gt; mcp.funil.move_lead(lead_id="94", etapa="proposta_aceita")

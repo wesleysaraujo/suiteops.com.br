@@ -1,28 +1,36 @@
 ---
+import { MCP } from '../lib/site';
+
 const servidores = [
   {
     nome: '/mcp/funil',
-    ferramentas: '8 ferramentas',
+    ferramentas: `${MCP.funil} ferramentas`,
     desc: 'Consulta leads, cadastra toques com UTM, move oportunidades no kanban e registra motivo formal de perda.',
     exemplo: 'mcp.funil.registrar_lead({ nome, email, telefone, utm_source })',
   },
   {
     nome: '/mcp/comercial',
-    ferramentas: '7 ferramentas',
+    ferramentas: `${MCP.comercial} ferramentas`,
     desc: 'Gera rascunho de propostas, consulta status de aceite, verifica relógio de prazos e calcula reajustes oficiais.',
     exemplo: 'mcp.comercial.consultar_reajuste({ contrato_id: 42, indice: "IPCA" })',
   },
   {
     nome: '/mcp/projetos',
-    ferramentas: '9 ferramentas',
+    ferramentas: `${MCP.projetos} ferramentas`,
     desc: 'Lê entregas do escopo vendido, aponta horas em minutos (com validação de data) e calcula a margem líquida do projeto.',
     exemplo: 'mcp.projetos.apontar_horas({ projeto_id, minutos: 90, entrega_id })',
   },
   {
     nome: '/mcp/automacoes',
-    ferramentas: '5 ferramentas',
+    ferramentas: `${MCP.automacoes} ferramentas`,
     desc: 'Simula o impacto de gatilhos sobre leads e tarefas antes de ativar, e audita histórico de execuções.',
     exemplo: 'mcp.automacoes.simular_regra({ regra_id: 12, lead_id: 88 })',
+  },
+  {
+    nome: '/mcp/notas',
+    ferramentas: `${MCP.notas} ferramentas`,
+    desc: 'Guarda o que ficou combinado no bloco de notas pessoal e organiza pela instrução que você definiu. Notas são privadas.',
+    exemplo: 'mcp.notas.criar_nota({ titulo, itens, lembrete })',
   },
 ];
 ---
@@ -120,7 +128,7 @@ const servidores = [
 
         <div class="grid grid-cols-2 gap-3">
           {servidores.map((srv) => (
-            <div class="rounded-lg border border-slate-800 bg-slate-900/40 p-4">
+            <div class="rounded-lg border border-slate-800 bg-slate-900/40 p-4 last:odd:col-span-2">
               <div class="flex items-center justify-between">
                 <span class="font-mono text-xs font-bold text-azul-claro">{srv.nome}</span>
                 <span class="rounded bg-slate-800 px-1.5 py-0.5 text-[10px] text-slate-400 font-mono">

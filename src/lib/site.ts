@@ -18,6 +18,24 @@ export const SITE = {
   companyUrl: 'https://techblues.com.br',
 };
 
+/**
+ * O que o MCP do app expõe hoje. **Único lugar** com esses números: o site é
+ * estático e não enxerga o app, então a contagem mora aqui e muda junto com
+ * `McpCatalog` (app.suiteops/app/Services/Mcp/McpCatalog.php), que é a fonte
+ * real. Conferir: `php artisan test --filter=McpGuideTest` no app.
+ */
+export const MCP = {
+  funil: 15,
+  comercial: 7,
+  projetos: 7,
+  automacoes: 5,
+  notas: 4,
+  servers: 5,
+  get tools() {
+    return this.funil + this.comercial + this.projetos + this.automacoes + this.notas;
+  },
+};
+
 export type NavLink = {
   label: string;
   href: string;
