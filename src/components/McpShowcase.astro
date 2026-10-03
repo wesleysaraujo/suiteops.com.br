@@ -33,6 +33,12 @@ const servidores = [
     exemplo: 'mcp.notas.criar_nota({ titulo, itens, lembrete })',
   },
   {
+    nome: '/mcp/conhecimento',
+    ferramentas: `${MCP.conhecimento} ferramentas`,
+    desc: 'Pergunta aos documentos do projeto (specs, atas, manuais) e responde só com o que está escrito, citando documento, versão, seção e página — ou diz que não consta.',
+    exemplo: 'mcp.conhecimento.perguntar_ao_projeto({ pergunta, projeto_id })',
+  },
+  {
     nome: '/mcp/conferencias',
     ferramentas: `${MCP.conferencias} ferramentas`,
     desc: 'Lista o que passou batido — lead parado, proposta esquecida, escopo estourando, contrato renovando — cada achado com a fonte. Confirmar cria uma tarefa; a decisão é da pessoa.',
