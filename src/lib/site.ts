@@ -25,9 +25,9 @@ export const SITE = {
  * real. Conferir: `php artisan test --filter=McpGuideTest` no app.
  */
 export const MCP = {
-  funil: 15,
+  funil: 17,
   comercial: 7,
-  projetos: 7,
+  projetos: 9,
   automacoes: 5,
   notas: 4,
   conferencias: 5,
