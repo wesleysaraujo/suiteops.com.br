@@ -33,9 +33,10 @@ export const MCP = {
   conferencias: 5,
   conhecimento: 3,
   marketing: 6,
-  servers: 8,
+  importacao: 2,
+  servers: 9,
   get tools() {
-    return this.funil + this.comercial + this.projetos + this.automacoes + this.notas + this.conferencias + this.conhecimento + this.marketing;
+    return this.funil + this.comercial + this.projetos + this.automacoes + this.notas + this.conferencias + this.conhecimento + this.marketing + this.importacao;
   },
 };
 

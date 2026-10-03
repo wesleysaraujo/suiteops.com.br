@@ -33,6 +33,12 @@ const servidores = [
     exemplo: 'mcp.notas.criar_nota({ titulo, itens, lembrete })',
   },
   {
+    nome: '/mcp/importacao',
+    ferramentas: `${MCP.importacao} ferramentas`,
+    desc: 'Explica o que aconteceu numa importação de CRM (Zoho, HubSpot, Pipedrive, Ploomes): o que entrou, o que já existia e o que falhou, linha a linha. Só leitura — enviar e executar são da tela.',
+    exemplo: 'mcp.importacao.ver_importacao({ importacao: "…" })',
+  },
+  {
     nome: '/mcp/marketing',
     ferramentas: `${MCP.marketing} ferramentas`,
     desc: 'Planeja o calendário de conteúdo e mostra quanto cada campanha — feira, BNI, Instagram — virou em leads, propostas, clientes e receita. Planeja e mede; não publica.',
