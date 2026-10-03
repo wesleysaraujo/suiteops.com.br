@@ -32,6 +32,12 @@ const servidores = [
     desc: 'Guarda o que ficou combinado no bloco de notas pessoal e organiza pela instrução que você definiu. Notas são privadas.',
     exemplo: 'mcp.notas.criar_nota({ titulo, itens, lembrete })',
   },
+  {
+    nome: '/mcp/conferencias',
+    ferramentas: `${MCP.conferencias} ferramentas`,
+    desc: 'Lista o que passou batido — lead parado, proposta esquecida, escopo estourando, contrato renovando — cada achado com a fonte. Confirmar cria uma tarefa; a decisão é da pessoa.',
+    exemplo: 'mcp.conferencias.listar_achados({ situacao: "aberto" })',
+  },
 ];
 ---
 
